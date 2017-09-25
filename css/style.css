@@ -1,4 +1,4 @@
-
+/* GLOBAL */
 html,
 body {
   font-family: Arial, sans-serif;
@@ -8,33 +8,72 @@ body {
   padding: 0;
 }
 
-ul {
+h1 {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+/* RESPONSIVE */
+@media screen and (min-width: 600px) {
+  #nav {
+    position: absolute;
+    background: black;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    color: white;
+    overflow: auto;
+  }
+  #main {
+    position: absolute;
+    left: 300px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #nav {
+    position: absolute;
+    background: black;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    color: white;
+    overflow: auto;
+  }
+  #main {
+    position: absolute;
+    left: 200px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+  }
+}
+
+/* NAV */
+#station-list {
+  padding-left: 10px;
+}
+
+#input-text {
+  width: 50%;
+}
+
+.button {
+  width: 20%;
+}
+
+.station {
   cursor: pointer;
 }
 
 /* HEADER */
-
-#nav {
-  position: absolute;
-  background: black;
-  left: 0;
-  top: 0;
-  width: 300px;
-  height: 100%;
-  color: white;
-  overflow: auto;
-}
-
-#main {
-  position: absolute;
-  left: 300px;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  height: 100%;
-}
-
-
 #header {
   height: 50px;
   padding-left: 15px;
@@ -53,9 +92,9 @@ ul {
   margin-top: 5px;
 }
 
+/* MAP */
 #map {
   display: block;
   width: 100%;
   height: calc(100% - 50px);
 }
-
