@@ -4,7 +4,7 @@ var Station = function(data, index) {
   this.location = ko.observable(data.location);
   this.visible = ko.observable(true);
   this.id = ko.observable(index);
-}
+};
 
 // View Model
 var ViewModel = function() {
@@ -80,7 +80,7 @@ var ViewModel = function() {
     var marker = markers[id];
     populateInfoWindow(marker, largeInfowindow);
   };
-}
+};
 
 // Activates knockout.js
 ko.applyBindings(new ViewModel());
