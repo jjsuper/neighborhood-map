@@ -1,0 +1,61 @@
+
+html,
+body {
+  font-family: Arial, sans-serif;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  cursor: pointer;
+}
+
+/* HEADER */
+
+#nav {
+  position: absolute;
+  background: black;
+  left: 0;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  color: white;
+  overflow: auto;
+}
+
+#main {
+  position: absolute;
+  left: 300px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+}
+
+
+#header {
+  height: 50px;
+  padding-left: 15px;
+  background: black;
+}
+
+#icon {
+  padding-top: 5px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.icon-line {
+  background: DodgerBlue;
+  height: 5px;
+  margin-top: 5px;
+}
+
+#map {
+  display: block;
+  width: 100%;
+  height: calc(100% - 50px);
+}
+
