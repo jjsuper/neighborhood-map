@@ -96,7 +96,7 @@ function initMap() {
   }
   // Extend the boundaries of the map
   map.fitBounds(bounds);
-}
+};
 
 // This function add animation BOUNCE into the selected marker 
 function addBounce(marker) {
@@ -109,7 +109,7 @@ function addBounce(marker) {
     marker.setAnimation(google.maps.Animation.BOUNCE);
     curMarker = marker;
   }
-}
+};
 
 // This function populates the infowindow when the marker is clicked.
 function populateInfoWindow(marker, infowindow) {
@@ -166,12 +166,12 @@ function populateInfoWindow(marker, infowindow) {
               // Add photo into the content
               content += '<img src="' + imageUrl  + '">';
               infowindow.setContent(content);
-            }).error(function(e) {
+            }).fail(function(e) {
               // In case no photo is found
               content += "<div>" + "Foursquare could not find the pictures" + "</div>";
               infowindow.setContent(content);
             });
-          }).error(function(e) {
+          }).fail(function(e) {
             // In case no venue is found
             content += "<div>" + "Foursquare could not find the location" + "</div>";
             infowindow.setContent(content);
@@ -189,5 +189,9 @@ function populateInfoWindow(marker, infowindow) {
     // Add animation on the correct marker.
     addBounce(marker);
   }
-}
+};
 
+// Error callback for GMap API request
+function mapError() {
+  window.alert('We could not load Google Map!');
+};

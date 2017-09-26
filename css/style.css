@@ -15,7 +15,7 @@ h1 {
 
 /* RESPONSIVE */
 @media screen and (min-width: 600px) {
-  #nav {
+  #aside {
     position: absolute;
     background: black;
     left: 0;
@@ -39,7 +39,7 @@ h1 {
 }
 
 @media screen and (max-width: 600px) {
-  #nav {
+  #aside {
     position: absolute;
     background: black;
     left: 0;
@@ -62,7 +62,7 @@ h1 {
   }
 }
 
-/* NAV */
+/* ASIDE */
 #input-text {
   margin-left: 10px;
   width: 50%;
@@ -76,8 +76,8 @@ h1 {
   cursor: pointer;
 }
 
-/* HEADER */
-#header {
+/* MAIN */
+#main-header {
   height: 50px;
   padding-left: 15px;
   background: black;
