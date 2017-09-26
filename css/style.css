@@ -25,7 +25,7 @@ h1 {
     color: white;
     overflow: auto;
   }
-  #main {
+  .main {
     position: absolute;
     left: 300px;
     top: 0;
@@ -36,6 +36,9 @@ h1 {
   #input-text {
     margin-left: 10px;
     width: 50%;
+  }
+  .alter-main {
+    left: 0;
   }
 }
 
@@ -50,7 +53,7 @@ h1 {
     color: white;
     overflow: auto;
   }
-  #main {
+  .main {
     position: absolute;
     left: 200px;
     top: 0;
@@ -64,6 +67,9 @@ h1 {
   }
   .button {
     margin-left: 30px;
+  }
+  .alter-main {
+    left: 0;
   }
 }
 

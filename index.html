@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
-    <div id="nav">
+    <div id="nav" data-bind="visible: visibleNav">
       <h1>BART Locations</h1>
         <input id="input-text" data-bind="value: filterString" />
         <input class="button" type="button" value="Filter" data-bind="click: filterStation">
@@ -18,7 +18,7 @@
         </div>
       </ul>
     </div>
-    <div id="main">
+    <div class="main" data-bind="css: { 'alter-main': !visibleNav()}">
       <div id="header">
         <div id="icon" data-bind="click: toggleNav">
           <div class="icon-line"></div>

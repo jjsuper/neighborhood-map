@@ -5,8 +5,8 @@ This is the forth project for "Full Stack Web Developer Nanodegree" on Udacity.
 In this project, a single page application featuring a map to display BART Locations San Francisco.
 
 ## Quickstart 
-1. Clone the project by `git clone https://github.com/jjsuper/neighborhood-map.git`
-2. Open index.html
+1. Clone the project by `git clone https://github.com/jjsuper/neighborhood-map.git`.
+2. Open index.html.
 
 
 ## Functionality of the map application includes: 

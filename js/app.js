@@ -1,37 +1,30 @@
 // Station Model
 var Station = function(data, index) {
-  this.title = ko.observable(data.title);
-  this.location = ko.observable(data.location);
+  this.title = data.title;
+  this.location = data.location;
   this.visible = ko.observable(true);
-  this.id = ko.observable(index);
+  this.id = index;
 };
 
 // View Model
 var ViewModel = function() {
   var self = this;
-  // filterString is used to filter stations
+  // filterString is to filter stations
   this.filterString = ko.observable("");
-  // station array to store all station models
+  // station array is to store all station models
   this.stationList = ko.observableArray([]);
   for (var i=0; i<locations.length; ++i) {
     this.stationList.push(new Station(locations[i], i));
   }
+  // visibleNac is to toggle navigator
+  this.visibleNav = ko.observable(true);
   // This function is to toggle Nav bar
   this.toggleNav = function() {
-    var nav = document.getElementById('nav');
-    var main = document.getElementById('main');
-    if(nav.style.display == "none") {
-      nav.style.display = "block";
-      main.style.left = nav.style.width;
-    }
-    else {
-      nav.style.display = "none";
-      main.style.left = "0";
-    }
+    this.visibleNav(!this.visibleNav());
     var bounds = new google.maps.LatLngBounds();
     this.stationList().forEach(function(data) {
       if (data.visible() === true) {
-        bounds.extend(data.location());
+        bounds.extend(data.location);
       }
     });
     map.fitBounds(bounds);
@@ -42,13 +35,13 @@ var ViewModel = function() {
     this.stationList().forEach(function(data) {
       if (data.visible() === true) {
         var substring = self.filterString().toLowerCase();
-        if (data.title().toLowerCase().indexOf(substring) !== -1) {
-          bounds.extend(data.location());
-          markers[data.id()].setMap(map);
+        if (data.title.toLowerCase().indexOf(substring) !== -1) {
+          bounds.extend(data.location);
+          markers[data.id].setMap(map);
         }
         else {
           data.visible(false);
-          markers[data.id()].setMap(null);
+          markers[data.id].setMap(null);
         }
       }
     });
@@ -64,8 +57,8 @@ var ViewModel = function() {
     var bounds = new google.maps.LatLngBounds();
     this.stationList().forEach(function(data) {
       data.visible(true);
-      bounds.extend(data.location());
-      markers[data.id()].setMap(map);
+      bounds.extend(data.location);
+      markers[data.id].setMap(map);
     });
     // Clear infowindow and selected marker
     curMarker = null;
@@ -76,7 +69,7 @@ var ViewModel = function() {
   };
   // This function is to select one station
   this.selectStation = function(station) {
-    var id = station.id();
+    var id = station.id;
     var marker = markers[id];
     populateInfoWindow(marker, largeInfowindow);
   };
