@@ -33,6 +33,10 @@ h1 {
     bottom: 0;
     height: 100%;
   }
+  #input-text {
+    margin-left: 10px;
+    width: 50%;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -54,19 +58,18 @@ h1 {
     bottom: 0;
     height: 100%;
   }
+  #input-text {
+    margin-left: 15px;
+    width: 170px;
+  }
+  .button {
+    margin-left: 30px;
+  }
 }
 
 /* NAV */
 #station-list {
   padding-left: 10px;
-}
-
-#input-text {
-  width: 50%;
-}
-
-.button {
-  width: 20%;
 }
 
 .station {
