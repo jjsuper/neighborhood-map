@@ -33,10 +33,6 @@ h1 {
     bottom: 0;
     height: 100%;
   }
-  #input-text {
-    margin-left: 10px;
-    width: 50%;
-  }
   .alter-main {
     left: 0;
   }
@@ -61,19 +57,17 @@ h1 {
     bottom: 0;
     height: 100%;
   }
-  #input-text {
-    margin-left: 15px;
-    width: 170px;
-  }
-  .button {
-    margin-left: 30px;
-  }
   .alter-main {
     left: 0;
   }
 }
 
 /* NAV */
+#input-text {
+  margin-left: 10px;
+  width: 50%;
+}
+
 #station-list {
   padding-left: 10px;
 }

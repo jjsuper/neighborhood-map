@@ -30,41 +30,38 @@ var ViewModel = function() {
     map.fitBounds(bounds);
   };
   // This function is to filter stations in the view list
-  this.filterStation = function() {
-    var bounds = new google.maps.LatLngBounds();
-    this.stationList().forEach(function(data) {
-      if (data.visible() === true) {
-        var substring = self.filterString().toLowerCase();
-        if (data.title.toLowerCase().indexOf(substring) !== -1) {
-          bounds.extend(data.location);
-          markers[data.id].setMap(map);
-        }
-        else {
-          data.visible(false);
-          markers[data.id].setMap(null);
-        }
-      }
-    });
-    // Clear infowindow and selected marker
-    curMarker = null;
-    largeInfowindow.marker = null;
-    largeInfowindow.close();
-    map.fitBounds(bounds);
-    this.filterString("");
-  };
+  this.filterStation = ko.computed(function() {
+  	if (!self.filterString()) {
+  	  self.stationList().forEach(function(station) {
+  		if (markers.length>0) {
+  		  markers[station.id].setMap(map);
+  		}
+  	  });
+  	  return self.stationList();
+  	}
+  	else {
+	    // Clear infowindow and selected marker
+	    curMarker = null;
+	    largeInfowindow.marker = null;
+	    largeInfowindow.close();
+	    // Filter station array
+	    return ko.utils.arrayFilter(self.stationList(), (station)=>{
+	    	if (station.title.toLowerCase().indexOf(self.filterString().toLowerCase()) !== -1) {
+	    		markers[station.id].setMap(map);
+	    		return true;
+	    	}
+	    	else {
+	    		markers[station.id].setMap(null);
+	    		return false;	    		
+	    	}
+	    });
+	}
+  });
   // This function is to reset all stations in the view list
   this.resetStation = function() {
-    var bounds = new google.maps.LatLngBounds();
-    this.stationList().forEach(function(data) {
-      data.visible(true);
-      bounds.extend(data.location);
-      markers[data.id].setMap(map);
-    });
-    // Clear infowindow and selected marker
-    curMarker = null;
-    largeInfowindow.marker = null;
-    largeInfowindow.close();
-    map.fitBounds(bounds);
+  	this.stationList().forEach(function(station) {
+		markers[station.id].setMap(map);
+	});
     this.filterString("");
   };
   // This function is to select one station

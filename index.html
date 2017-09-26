@@ -9,12 +9,11 @@
   <body>
     <div id="nav" data-bind="visible: visibleNav">
       <h1>BART Locations</h1>
-        <input id="input-text" data-bind="value: filterString" />
-        <input class="button" type="button" value="Filter" data-bind="click: filterStation">
+        <input id="input-text" type="text" data-bind="textInput: filterString" autofocus>
         <input class="button" type="button" value="Refresh" data-bind="click: resetStation">
-      <ul id="station-list" data-bind="foreach: stationList">
-        <div class="station" data-bind="if: visible, click: $parent.selectStation">
-          <p data-bind="text: title"></p>
+      <ul id="station-list" data-bind="foreach: filterStation">
+        <div class="station" data-bind="click: $parent.selectStation">
+        	<p data-bind="text: title"></p>
         </div>
       </ul>
     </div>
